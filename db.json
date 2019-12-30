@@ -1,0 +1,52 @@
+{
+    "recipes": [
+        {
+            "title": "Easy Homemade Wheat Bread",
+            "image": "https://spoonacular.com/recipeImages/500345-312x231.jpg",
+            "ingredients": ["millet", "water", "yeast", "oats", "salt"],
+            "steps": ["Combine warm water (like bath water, or about 110*) with yeast in a large mixing bowl and let set for 5 minutes to get foamy. Then add salt and flours and stir with a wooden spoon. The result will be a sticky, rough dough.Lift the dough out of the bowl and lightly grease the bowl with nonstick spray or olive oil. Cover with plastic wrap and let rise in the refrigerator for two hours or in a warm place for 1 hour.Once doubled in size, lightly sprinkle the dough with flour and transfer to a generously floured work surface. Knead a few times adding flour as needed and then add oats and millet in batches. Knead until until grains are incorporated and the dough is no longer sticky.", "Place on lightly greased baking sheet. Sift a light coating of flour over the top to help keep the dough moist.", "Let rest for 45-60 minutes.Preheat oven to 450°F and place a metal or cast iron pan (not glass, Pyrex, or ceramic) on the lowest oven rack, and have 1 cup of hot water ready.When ready to bake, slash the bread 2 or 3 times with a knife, making a cut about ½-inch deep.", "Place bread in oven and carefully pour hot water into the shallow pan on the rack beneath. Close oven door quickly.", "Bake the bread for 25 to 35 minutes, or until golden brown and crusty.", "Remove the bread from the oven and cool on a rack. Once fully cooled, store leftovers in a plastic bag at room temp."]
+        },
+        {
+            "title": "Basil Focaccia Bread",
+            "image": "https://spoonacular.com/recipeImages/487640-312x231.jpg",
+            "ingredients": [],
+            "steps": []
+        },
+        {
+            "title": "Whole Wheat No-Knead Bread",
+            "image": "https://spoonacular.com/recipeImages/991179-312x231.jpg",
+            "ingredients": [],
+            "steps": []
+        },
+        {
+            "title": "Steak Fry Bread Tacos",
+            "image": "https://spoonacular.com/recipeImages/559430-312x231.jpg",
+            "ingredients": [],
+            "steps": []
+        },
+        {
+            "title": "No Knead Olive Walnut Bread",
+            "image": "https://spoonacular.com/recipeImages/497074-312x231.jpg",
+            "ingredients": [],
+            "steps": []
+        },
+        {
+            "title": "Sweet Wheat Bread Bowls",
+            "image": "https://spoonacular.com/recipeImages/532968-312x231.jpg",
+            "ingredients": [],
+            "steps": []
+        },
+        {
+            "title": "Homemade Rye Bread",
+            "image": "https://spoonacular.com/recipeImages/830610-312x231.jpg",
+            "ingredients": [],
+            "steps": []
+        },
+        {
+            "title": "Courgette, Potato & Cheddar bread",
+            "image": "https://spoonacular.com/recipeImages/210715-312x231.jpg",
+            "ingredients": [],
+            "steps": []
+        }
+    ]
+}

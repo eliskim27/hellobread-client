@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    font-family: monospace;
+}
+
+#recipes {
+    margin: 2rem;
+  }
+  
+.card {
+    text-align: center;
+    border: grey solid 1.25px;
+    padding: 1rem;
+    width: 15rem;
+    height: 25rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px #e04b52
+}
+
+.photo {
+    justify-self: center;
+    height: 11rem;
+    width: auto;
+  }
