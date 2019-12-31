@@ -29,6 +29,35 @@ body {
 }
 
 #details {
-  border: grey solid 1.25px;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    /* left: 0;
+    top: 0; */
+    margin-left: 7%;
+    margin-right: 7%;
+    width: 80%; /* Full width */
+    height: 80%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(76, 140, 192);
+    border: black solid 3px;
+    padding: 30px;
+  }
 
+#recipe-ingredients {
+    background-color:  rgb(150, 184, 211);
+}
+
+#recipe-steps {
+    background-color:  rgb(150, 184, 211);
+}
+
+#heart {
+    font-size: x-large;
+    border: grey solid 0px;
+}
+
+#span {
+    font-size: large;
 }

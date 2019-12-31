@@ -20,25 +20,33 @@ function fetchRecipes(){
                 recipeCard.setAttribute('class', 'card')
                 recipeCard.innerHTML = `
                     <img class='photo' src=${recipe.image}>
-                    <h4>${recipe.title}</h4>
+                    <h3>${recipe.title}</h3>
+                    <button id="heart">❤️ <span id="span">${recipe.likes}</span></button>
                 `
                 recipeCard.dataset.ingredients = recipeIngredientsArray
                 recipeCard.dataset.steps = recipeStepsArray
+                recipeCard.dataset.id = recipe.id
+                recipeCard.dataset.likes = recipe.likes
                 recipesDiv.appendChild(recipeCard)
             });
         })
 }
     
 document.addEventListener('click', function(e){
-    if (e.target.className === "card"){
+    if (e.target.className === "card" && e.target.id !== 'heart'){
         let recCard = e.target
         toggleRecipeShow(recCard)
-    } else if (e.target.parentNode.className === "card"){
+    } else if (e.target.parentNode.className === "card" && e.target.id !== 'heart'){
         let recCard = e.target.parentNode
         toggleRecipeShow(recCard)
     }        
     
-    
+    if (e.target.id === 'heart') {
+        let recCard = e.target.parentNode
+        let likesSpan = e.target.lastChild
+        likesSpan.innerText = parseInt(likesSpan.innerText) + 1
+        likeRecipe(recCard, likesSpan)
+    }        
 })
 
 function toggleRecipeShow(recCard){
@@ -64,6 +72,8 @@ function createRecipeShow(recCard){
         const stepLi = document.createElement('li')
         stepLi.innerText = step
         recipeStepsList.appendChild(stepLi)
+        const stepBr = document.createElement('br')
+        recipeStepsList.appendChild(stepBr)
     })
 }
 
@@ -81,3 +91,11 @@ recipeCloseBtn.addEventListener('click', function(){
     recipeDetails.style.display = 'none'
     recipeShow = !recipeShow
 })
+
+function likeRecipe(recCard, likesSpan) {
+    fetch(`http://localhost:3000/api/v1/recipes/${recCard.dataset.id}`, {
+      method: 'PATCH',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({likes: parseInt(likesSpan.innerText)})
+    })
+}
