@@ -9,7 +9,6 @@ let recipeShow = false
 
 fetchRecipes()
 
-
 function fetchRecipes(){
     fetch('http://localhost:3000/api/v1/recipes')
         .then(function(response) { return response.json() })
@@ -53,7 +52,6 @@ function toggleRecipeShow(recCard){
     }   
 }
 
-
 function createRecipeShow(recCard){
     let currentIngredients = recCard.dataset.ingredients.split(',')
     currentIngredients.forEach(ingredient => {
@@ -81,13 +79,5 @@ function deleteRecipeShow(){
 recipeCloseBtn.addEventListener('click', function(){
     deleteRecipeShow()
     recipeDetails.style.display = 'none'
+    recipeShow = !recipeShow
 })
-
-
- 
-
-
-
-
- 
-    
