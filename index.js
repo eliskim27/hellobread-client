@@ -1,51 +1,93 @@
-// make sure we get the routes right
-
 const recipesDiv = document.getElementById('recipes')
 
-fetch('http://localhost:3000/recipes')
-    .then(function(response) { return response.json() })
-    .then(function(recipes) {
-        recipes.forEach(recipe => {
-            const recipeCard = document.createElement('div')
-            recipeCard.setAttribute('class', 'card')
-            recipeCard.innerHTML = `
-                <img class='photo' src=${recipe.image}>
-                <h4>${recipe.title}</h4>
-            `
-            recipeCard.addEventListener('click', function(e) {
-                console.log("ingredients", recipe.ingredients)
-                console.log("steps", recipe.steps)
+const recipeDetails = document.getElementById('details')
+const recipeIngredientsList = document.getElementById('recipe-ingredients')
+const recipeStepsList = document.getElementById('recipe-steps')
+const recipeCloseBtn = document.getElementById('recipe-close')
 
-                /*need to make transparent/hide all content, except
-                current recipe's title, ingredients and steps*/
+let recipeShow = false
 
-                document.body.setAttribute('class', 'fade')
+fetchRecipes()
 
-                const recipeDetails = document.createElement('div')
-                const recipeIngredients = document.createElement('ul')
-                const recipeSteps = document.createElement('ol')
 
-                recipe.ingredients.forEach(ingredient => {
-                    const ingredientLi = document.createElement('li')
-                    ingredientLi.innerText = ingredient
-                    recipeIngredients.appendChild(ingredientLi)
-                });
-
-                recipe.steps.forEach(step => {
-                    const stepLi = document.createElement('li')
-                    stepLi.innerText = step
-                    recipeIngredients.appendChild(stepLi)
-                });
-
-                recipeDetails.appendChild(recipeIngredients)
-                recipeDetails.appendChild(recipeSteps)
-                recipeDetails.innerHTML = `
+function fetchRecipes(){
+    fetch('http://localhost:3000/api/v1/recipes')
+        .then(function(response) { return response.json() })
+        .then(function(recipes) {
+            recipes.forEach(recipe => {
+                const recipeCard = document.createElement('div')
+                let recipeIngredientsArray = JSON.parse(recipe.ingredients)
+                let recipeStepsArray = JSON.parse(recipe.steps)
+                recipeCard.setAttribute('class', 'card')
+                recipeCard.innerHTML = `
+                    <img class='photo' src=${recipe.image}>
                     <h4>${recipe.title}</h4>
-                    <div>${recipeIngredients}</div>
-                    <div>${recipeSteps}</div>
                 `
-                recipesDiv.prepend(recipeDetails)
-            })
-            recipesDiv.appendChild(recipeCard)
-        });
+                recipeCard.dataset.ingredients = recipeIngredientsArray
+                recipeCard.dataset.steps = recipeStepsArray
+                recipesDiv.appendChild(recipeCard)
+            });
+        })
+}
+    
+document.addEventListener('click', function(e){
+    if (e.target.className === "card"){
+        let recCard = e.target
+        toggleRecipeShow(recCard)
+    } else if (e.target.parentNode.className === "card"){
+        let recCard = e.target.parentNode
+        toggleRecipeShow(recCard)
+    }        
+    
+    
+})
+
+function toggleRecipeShow(recCard){
+    if (recipeShow == false) {
+        recipeDetails.style.display = 'block'
+        createRecipeShow(recCard)
+        recipeShow = !recipeShow
+    } else if (recipeShow == true){
+        deleteRecipeShow()
+        createRecipeShow(recCard)
+    }   
+}
+
+
+function createRecipeShow(recCard){
+    let currentIngredients = recCard.dataset.ingredients.split(',')
+    currentIngredients.forEach(ingredient => {
+        let ingredientLi = document.createElement('li')
+        ingredientLi.innerText = ingredient
+        recipeIngredientsList.appendChild(ingredientLi)
     })
+    let currentSteps = recCard.dataset.steps.split('.,')
+    currentSteps.forEach(step => {
+        const stepLi = document.createElement('li')
+        stepLi.innerText = step
+        recipeStepsList.appendChild(stepLi)
+    })
+}
+
+function deleteRecipeShow(){
+    while (recipeIngredientsList.firstChild){
+        recipeIngredientsList.firstChild.remove()
+    }
+    while (recipeStepsList.firstChild){
+        recipeStepsList.firstChild.remove()
+    }
+}
+        
+recipeCloseBtn.addEventListener('click', function(){
+    deleteRecipeShow()
+    recipeDetails.style.display = 'none'
+})
+
+
+ 
+
+
+
+
+ 
+    
