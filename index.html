@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<h1>hellllooooo breaddddd</h1>
-
+  
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +9,56 @@
     <link rel="stylesheet" href="index.css">
     <title>Bread Recipes</title>
   </head>
-
+  
   <body>
+
+    
+    <div id="navdiv"></div>
+    <ol id="favorites">
+      <h1>hellllooooo breaddddd</h1> 
+      <h3>Your Favorite Recipes:</h3>
+    </ol>
+  </div>
+
+
     <div id="details" style="display: none">
+      <h1 id='recshowtitle'></h1>
       <h3>Ingredients:</h3>
       <ul id="recipe-ingredients"></ul>
       <h3>Steps:</h3>
       <ol id="recipe-steps"></ol>
       <button id="recipe-close">Close</button>
     </div>
+
+    <div id="favdetails" style="display: none">
+      <h1 id='favshowtitle'></h1>
+      <h3>Ingredients:</h3>
+      <ul id="favorite-ingredients"></ul>
+      <h3>Steps:</h3>
+      <ol id="favorite-steps"></ol>
+      
+      <h3>Comments:</h3>
+      <div id="commentsdiv">
+        <form id="comform">
+          <label>Add comment below</label><br>
+          <textarea name="comment" form="comform" id="forminput"></textarea><br>
+          <input type="submit" id="formsubmit">
+        </form>
+        <!-- <h3>Comments:</h3> -->
+        <ul id="comlist"></ul>
+      </div>
+
+      <br><br>
+      <button id="favorite-close">Close</button><br><br>
+      <button id="favorite-delete">Delete Favorite</button>
+    </div>
+  
+
+      
+
+
+  </body>
     <div id="recipes"></div>
     <script src="index.js"></script>
-  </body>
 
 </html>
