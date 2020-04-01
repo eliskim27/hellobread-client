@@ -173,7 +173,7 @@ function fetchAndRenderFavs(){
     })
 }
 
-// favorite modal
+// favorite modal if time
 
 sideFavoritesUL.addEventListener('click', function(e){
     if (e.target.tagName === "LI"){
